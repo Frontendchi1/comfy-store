@@ -1,7 +1,14 @@
-import React from "react";
+import { Hero } from "../components"
 
 function Landing() {
-  return <div>Landing</div>;
+
+   return (
+      <>
+         <section className="py-20">
+            <Hero />
+         </section>
+      </>
+   )
 }
 
-export default Landing;
+export default Landing
