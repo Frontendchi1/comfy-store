@@ -1,7 +1,7 @@
 import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
-import Navlinks from "./NavLinks"
+import Navlinks from "./NavLInks"
 import { useState, useEffect } from "react";
 
 const themes = {
