@@ -1,14 +1,17 @@
-import React from 'react'
-import SectionTitle from './SectionTitle'
-import ProductsGrid from './ProductsGrid'
-
-function FeaturedProducts() {
+function FormInput({ label, name, type, defaultValue }) {
    return (
-      <div className="pt-24">
-         <SectionTitle text={"Featured Products"}></SectionTitle>
-         <ProductsGrid />
+      <div className="form-control">
+         <label className="label">
+            <span className="label-text">{label}</span>
+         </label>
+         <input
+            type={type}
+            name={name}
+            defaultValue={defaultValue}
+            className="input input-bordered"
+         />
       </div>
-   )
+   );
 }
 
-export default FeaturedProducts
+export default FormInput;

@@ -1,7 +1,7 @@
 import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
-import Navlinks from "./NavLInks"
+import Navlinks from "./Navlinks"
 import { useState, useEffect } from "react";
 
 const themes = {
@@ -13,7 +13,7 @@ const themes = {
 
 
 function Navbar() {
-   const [theme, setTheme] = useState(localStorage.getItem('theme' || themes.light))
+   const [theme, setTheme] = useState(localStorage.getItem('theme') || themes.light)
    const handleTheme = (e) => {
       if (e.target.checked) {
          setTheme(themes.dark)
