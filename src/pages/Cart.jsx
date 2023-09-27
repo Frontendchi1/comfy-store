@@ -6,7 +6,7 @@ const Cart = () => {
   const user = null;
   const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
   if (numItemsInCart === 0) {
-    return <SectionTitle text="Your cart is empty" />;
+    return <SectionTitle  text="Your cart is empty" />;
   }
   return (
     <div className="align-elements py-20">
