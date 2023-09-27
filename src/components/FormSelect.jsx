@@ -1,4 +1,7 @@
+import React from "react";
+
 function FormSelect({ label, name, list, defaultValue, size }) {
+    // console.log(list);
   return (
     <div className="form-control">
       <label htmlFor={name} className="label">
@@ -11,11 +14,11 @@ function FormSelect({ label, name, list, defaultValue, size }) {
         defaultValue={defaultValue}
       >
         {list.map((item) => {
-          return (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          );
+            return (
+                <option key={item} value={item}>
+                        {item}
+                </option>
+            )
         })}
       </select>
     </div>

@@ -1,10 +1,10 @@
 import { Form, useLoaderData, Link } from "react-router-dom";
-import FromInput from "./FormInput";
+import FromInput from "./FromInput";
 import FormSelect from "./FormSelect";
 import FormRange from "./FormRange";
-import FormCheckbox from "./FormChexbox";
+import FormCheckbox from "./FormCheckbox";
 
-function Filters() {
+function Filter() {
   const { meta, params } = useLoaderData();
   const { search, company, category, shipping, order, price } = params;
   console.log(meta);
@@ -56,4 +56,4 @@ function Filters() {
   );
 }
 
-export default Filters;
+export default Filter;

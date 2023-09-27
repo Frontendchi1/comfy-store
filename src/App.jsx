@@ -1,7 +1,6 @@
-// rrd
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-// pages and layoutes
+// pages and layouts
 import {
   About,
   Cart,
@@ -13,70 +12,70 @@ import {
   Orders,
   Products,
   Register,
-  SingleProduct,
-} from "./pages"
-
+  SingleProduct
+} from './pages'
 import { ErrorElement } from "./components";
-import { loader as landingLoader } from "./pages/Landing"
-import { loader as singleProductLoader } from "./pages/SingleProduct"
-import { loader as ProductsLoader } from "./pages/Products"
+
+import {loader as LandingLoader} from './pages/Landing'
+import {loader as SingleProductLoader} from './pages/SingleProduct'
+import {loader as ProductsLoader} from './pages/Products'
 
 function App() {
   const routes = createBrowserRouter([
     {
-      path: "/",
-      element: <HomeLayout />,
-      errorElement: <Error />,
+      path: '/',
+      element: <HomeLayout/>,
+      errorElement: <Error/>,
       children: [
         {
           index: true,
-          element: <Landing />,
-          loader: landingLoader,
-          errorElement: <ErrorElement />,
+          element: <Landing/>,
+          loader: LandingLoader,
+          errorElement: <ErrorElement/>
         },
         {
-          path: "about",
-          element: <About />,
+          path: '/about',
+          element: <About/>
         },
         {
-          path: "orders",
-          element: <Orders />,
+          path: 'orders',
+          element: <Orders/>
         },
         {
-          path: "products",
-          element: <Products />,
+          path: 'products',
+          element: <Products/>,
           loader: ProductsLoader,
-          errorElement: <ErrorElement />
+          errorElement: <ErrorElement/>
         },
         {
-          path: "products/:id",
-          element: <SingleProduct />,
-          errorElement: <ErrorElement />,
-          loader: singleProductLoader
+          path: 'products/:id',
+          element: <SingleProduct/>,
+          loader: SingleProductLoader,
+          errorElement: <ErrorElement/>,
         },
         {
-          path: "cart",
-          element: <Cart />,
+          path: 'cart',
+          element: <Cart/>
         },
         {
-          path: "checkout",
-          element: <Checkout />,
-        },
-      ],
+          path: 'checkout',
+          element: <Checkout/>
+        }
+      ]
     },
     {
-      path: "/login",
-      element: <Login />,
-      errorElement: <Error />,
+      path: '/login',
+      element: <Login/>,
+      errorElement: <Error/>
     },
     {
-      path: "/register",
-      element: <Register />,
-      errorElement: <Error />,
-    },
-  ]);
-
-  return <RouterProvider router={routes} />;
+      path: '/register',
+      element: <Register/>,
+      errorElement: <Error/>
+    }
+  ])
+  return ( <RouterProvider router={routes}/>
+  );
 }
 
 export default App;

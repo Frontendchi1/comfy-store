@@ -2,6 +2,8 @@ import { useLoaderData } from "react-router-dom";
 import { FormatPrice, customFetch, generateAmountOptions } from "../utils";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../features/cart/cartSlice";
 
 export const loader = async ({ params }) => {
   const request = await customFetch(`/products/${params.id}`);
@@ -13,13 +15,27 @@ function SingleProduct() {
   const { image, title, price, description, colors, company } =
     product.attributes;
   const dollarAmount = FormatPrice(price);
-  const [productColor, setProductColor] = useState(colors[0])
-  const [amount, setAmount] = useState(1)
+  const [productColor, setProductColor] = useState(colors[0]);
+  const [amount, setAmount] = useState(1);
   const handleAmount = (e) => {
-    setAmount(parseInt(e.target.value))
+    setAmount(parseInt(e.target.value));
+  };
+
+  const dispatch = useDispatch();
+  const productToBuy = {
+    cartID: product.id + productColor,
+    productID: product.id,
+    image,
+    title,
+    price,
+    amount,
+    productColor,
+    company,
+  };
+
+  const addToCart = () => {
+    dispatch(addItem({product: productToBuy}))
   }
-
-
   return (
     <section className="align-elements py-20">
       <div className="text-md breadcrumbs">
@@ -52,18 +68,18 @@ function SingleProduct() {
             <div className="mt-2">
               {colors.map((color) => {
                 return (
-                  <button 
-                  key={color}
-                  type="button"
-                  className={`badge h-6 w-6 mr-2 ${
-                    color === productColor && 'border-2 border-primary'
-                  }`}
-                  style={{background: color}}
-                  onClick={()=> {setProductColor(color)}}
-                  >
-
-                  </button>
-                )
+                  <button
+                    key={color}
+                    type="button"
+                    className={`badge h-6 w-6 mr-2 ${
+                      color === productColor && "border-2 border-primary"
+                    }`}
+                    style={{ background: color }}
+                    onClick={() => {
+                      setProductColor(color);
+                    }}
+                  ></button>
+                );
               })}
             </div>
             <div className="form-control w-full max-w-xs">
@@ -78,10 +94,10 @@ function SingleProduct() {
                 value={amount}
                 onChange={handleAmount}
               >
-               {generateAmountOptions(20)}
+                {generateAmountOptions(20)}
               </select>
               <div className="mt-10">
-                <button className="btn btn-primary btn-md">Add to bag</button>
+                <button onClick={addToCart} className="btn btn-primary btn-md">Add to bag</button>
               </div>
             </div>
           </div>

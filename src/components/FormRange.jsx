@@ -1,4 +1,4 @@
-import { FormatPrice } from "../utils";
+import { FormatPrice } from "../utils"; 
 import { useState } from "react";
 
 function FormRange({ label, name, size, price }) {
