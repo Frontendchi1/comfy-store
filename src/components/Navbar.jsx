@@ -3,7 +3,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import NavLinks from "./Navlinks"
+ import Navlinks from "./Navlinks"
 
 
 
