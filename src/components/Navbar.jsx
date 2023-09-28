@@ -3,7 +3,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
- import Navlinks from "./Navlinks"
+import Navlinks from "./Navlinks";
 
 
 
@@ -52,13 +52,13 @@ function Navbar() {
               tabIndex={0}
               className="menu menu-sm dropdown-content z-[1] mt-3 p-2 shadow bg-base-200"
             >
-              <NavLinks />
+              <Navlinks />
             </ul>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal gap-2">
-            <NavLinks />
+            <Navlinks />
           </ul>
         </div>
         <div className="navbar-end">
