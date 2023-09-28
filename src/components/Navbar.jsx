@@ -5,11 +5,6 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Navlinks from "./Navlinks";
 
-
-
-
-
-
 const themes = {
   light: "light",
   dark: "dark",
