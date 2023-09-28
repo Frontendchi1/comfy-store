@@ -1,9 +1,9 @@
 import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
+import NavLinks from "./Navlinks";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import Navlinks from "./Navlinks";
 
 const themes = {
   light: "light",
@@ -47,13 +47,13 @@ function Navbar() {
               tabIndex={0}
               className="menu menu-sm dropdown-content z-[1] mt-3 p-2 shadow bg-base-200"
             >
-              <Navlinks />
+              <NavLinks />
             </ul>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal gap-2">
-            <Navlinks />
+            <NavLinks />
           </ul>
         </div>
         <div className="navbar-end">
